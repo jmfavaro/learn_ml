@@ -28,9 +28,11 @@ les méthodes non paramétriques sont généralement utilisés pour la prédicti
 
 - regression **vs** classification pb : selon le type de variable à modéliser (quant ou quali). 
 
-- Assessing model accuracy
+## Assessing model accuracy
 
-pour la regreession : MSE. calcul pour le training dataset et le test dataset.
+### regression settings
+
+pour la regression : MSE. calcul pour le training dataset et le test dataset.
 overfitting : le training est très faible mais le test est fort
 => cross validation
 
@@ -47,6 +49,8 @@ donc plus la methode est flexible, plus la variance augmente et plus le biais ba
 
 ce trade-off est la principale difficulté. il ne faut jamais le perdre de vue.
 
+
+### classification settings
 
 
 
