@@ -1,0 +1,31 @@
+---
+title: "ISLR Notebook"
+output:
+  html_notebook: default
+  pdf_document: default
+---
+
+Notebook pour le livre "Introduction to Statistical Learning with Applications in R"
+
+
+```{r}
+library(ISLR)
+```
+```{python}
+np = [1,2,3]
+print(np)
+print(type(np))
+```
+
+
+
+# Chapitre 2 : Statistical Learning
+
+- prédiction **vs** l'inférence
+
+- methode paramétrique **vs** non-paramétrique : la forme de **f** est défini vs la forme ne l'est pas.
+les méthodes non paramétriques sont généralement utilisés pour la prédiction car meilleure pour ça. cela dit, pas toujours car ces méthodes sont sensibles à l'*overfitting*.
+
+- supervised **vs** unsupervised 
+
+- regression **vs** classification pb : selon le type de variable à modéliser (quant ou quali). 
