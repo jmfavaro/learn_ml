@@ -17,8 +17,6 @@ print(np)
 print(type(np))
 ```
 
-
-
 # Chapitre 2 : Statistical Learning
 
 - prédiction **vs** l'inférence
@@ -29,3 +27,28 @@ les méthodes non paramétriques sont généralement utilisés pour la prédicti
 - supervised **vs** unsupervised 
 
 - regression **vs** classification pb : selon le type de variable à modéliser (quant ou quali). 
+
+- Assessing model accuracy
+
+pour la regreession : MSE. calcul pour le training dataset et le test dataset.
+overfitting : le training est très faible mais le test est fort
+=> cross validation
+
+- the bias-variance trade off
+
+expected test MSE se décompose en 3 parties:
+    - variance
+    - squared biais
+    - variance de l'erreur
+    
+la variance : variation du à l'échantillon (on change d'échantillon, on a des coef un peu différents). plus la methode stat est flexible, plus la variance est forte en général.
+biais : provient des simplifications faites sur la forme fonctionnelle (un mod lin peut avoir un très fort biais si la relation n'est pas linéaire). plus un mothode est flexible, moins le biais est fort (en général).
+donc plus la methode est flexible, plus la variance augmente et plus le biais baisse. la point critique est la dynamique des 2.
+
+ce trade-off est la principale difficulté. il ne faut jamais le perdre de vue.
+
+
+
+
+
+
