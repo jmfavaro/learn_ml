@@ -173,18 +173,21 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<p>Notebook pour le livre “Introduction to Statistical Learning with Applications in R”</p>
+<p>Notebook pour le livre “Introduction to Statistical Learning with Applications in R” (url)[<a href="http://www-bcf.usc.edu/~gareth/ISL/" class="uri">http://www-bcf.usc.edu/~gareth/ISL/</a>]</p>
+<p>MOOC : <a href="https://lagunita.stanford.edu/dashboard" class="uri">https://lagunita.stanford.edu/dashboard</a></p>
+<p>id : <a href="mailto:jmfavaro@yahoo.fr">jmfavaro@yahoo.fr</a><br />
+pwd : JM70vinn</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShJU0xSKVxuYGBgIn0= -->
-<pre class="r"><code>library(ISLR)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeShJU0xSKVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r library(ISLR)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5ucCA9IFsxLDIsM11cbnByaW50KG5wKVxucHJpbnQodHlwZShucCkpXG5gYGAifQ== -->
-<pre class="python"><code>np = [1,2,3]
-print(np)
-print(type(np))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5gYGBweXRob25cbm5wID0gWzEsMiwzXVxucHJpbnQobnApXG5wcmludCh0eXBlKG5wKSlcbmBgYFxuYGBgIn0= -->
+<p><code>python</code>python np = [1,2,3] print(np) print(type(np))</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzEsIDIsIDNdXG48dHlwZSAnbGlzdCc+XG4ifQ== -->
 <pre><code>[1, 2, 3]
@@ -210,16 +213,31 @@ print(type(np))</code></pre>
 </ul>
 <p>expected test MSE se décompose en 3 parties: - variance - squared biais - variance de l’erreur</p>
 <p>la variance : variation du à l’échantillon (on change d’échantillon, on a des coef un peu différents). plus la methode stat est flexible, plus la variance est forte en général. biais : provient des simplifications faites sur la forme fonctionnelle (un mod lin peut avoir un très fort biais si la relation n’est pas linéaire). plus un mothode est flexible, moins le biais est fort (en général). donc plus la methode est flexible, plus la variance augmente et plus le biais baisse. la point critique est la dynamique des 2.</p>
-<p>ce trade-off est la principale difficulté. il ne faut jamais le perdre de vue.</p>
+<p>ce trade-off est la principale difficulté. il ne faut jamais le perdre de vue. Il se manifeste par la courbe en U du taux d’erreur sur le test dataset.</p>
 </div>
 <div id="classification-settings" class="section level3">
 <h3>classification settings</h3>
+<ul>
+<li>error rate</li>
+</ul>
+<div id="the-bayes-classifier-affecter-a-la-classe-qui-a-la-plus-forte-probabilite" class="section level4">
+<h4>the bayes classifier: affecter à la classe qui a la plus forte probabilité</h4>
+<ul>
+<li><p>Bayes decision boundary : limite (frontiere) séparant les classes via le bayes classifier</p></li>
+<li><p>le bayes classifier produit le plus petit taux d’erreur (error rate), appelé le <strong>bayes error rate</strong></p></li>
+</ul>
+</div>
+<div id="k-nearest-neighbors-knn" class="section level4">
+<h4>K-Nearest Neighbors (KNN)</h4>
+<p>En theorie, on voudrait toujours utiliser le bayes classifier, mais en pratique, on on ne connait pas la distribution conditionnelle de Y sachant X. donc on peut pas le calculer (<em>?? pourquoi</em>)</p>
+<p>Souvent très proche du bayes classifier. le choix de K joue énormément. Si K=1, modèle très flexible (overfitting), plus K grandit, moins le modèle est flexible et la frontière devient linéaire. Il n’y a pas de relation forte entre le taux d’erreur sur le training et le test dataset.</p>
 <!-- rnb-text-end -->
 </div>
 </div>
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSVNMUiBOb3RlYm9vayIKb3V0cHV0OgogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKLS0tCgpOb3RlYm9vayBwb3VyIGxlIGxpdnJlICJJbnRyb2R1Y3Rpb24gdG8gU3RhdGlzdGljYWwgTGVhcm5pbmcgd2l0aCBBcHBsaWNhdGlvbnMgaW4gUiIKCgpgYGB7cn0KbGlicmFyeShJU0xSKQpgYGAKYGBge3B5dGhvbn0KbnAgPSBbMSwyLDNdCnByaW50KG5wKQpwcmludCh0eXBlKG5wKSkKYGBgCgojIENoYXBpdHJlIDIgOiBTdGF0aXN0aWNhbCBMZWFybmluZwoKLSBwcsOpZGljdGlvbiAqKnZzKiogbCdpbmbDqXJlbmNlCgotIG1ldGhvZGUgcGFyYW3DqXRyaXF1ZSAqKnZzKiogbm9uLXBhcmFtw6l0cmlxdWUgOiBsYSBmb3JtZSBkZSAqKmYqKiBlc3QgZMOpZmluaSB2cyBsYSBmb3JtZSBuZSBsJ2VzdCBwYXMuCmxlcyBtw6l0aG9kZXMgbm9uIHBhcmFtw6l0cmlxdWVzIHNvbnQgZ8OpbsOpcmFsZW1lbnQgdXRpbGlzw6lzIHBvdXIgbGEgcHLDqWRpY3Rpb24gY2FyIG1laWxsZXVyZSBwb3VyIMOnYS4gY2VsYSBkaXQsIHBhcyB0b3Vqb3VycyBjYXIgY2VzIG3DqXRob2RlcyBzb250IHNlbnNpYmxlcyDDoCBsJypvdmVyZml0dGluZyouCgotIHN1cGVydmlzZWQgKip2cyoqIHVuc3VwZXJ2aXNlZCAKCi0gcmVncmVzc2lvbiAqKnZzKiogY2xhc3NpZmljYXRpb24gcGIgOiBzZWxvbiBsZSB0eXBlIGRlIHZhcmlhYmxlIMOgIG1vZMOpbGlzZXIgKHF1YW50IG91IHF1YWxpKS4gCgojIyBBc3Nlc3NpbmcgbW9kZWwgYWNjdXJhY3kKCiMjIyByZWdyZXNzaW9uIHNldHRpbmdzCgpwb3VyIGxhIHJlZ3Jlc3Npb24gOiBNU0UuIGNhbGN1bCBwb3VyIGxlIHRyYWluaW5nIGRhdGFzZXQgZXQgbGUgdGVzdCBkYXRhc2V0LgpvdmVyZml0dGluZyA6IGxlIHRyYWluaW5nIGVzdCB0csOocyBmYWlibGUgbWFpcyBsZSB0ZXN0IGVzdCBmb3J0Cj0+IGNyb3NzIHZhbGlkYXRpb24KCi0gdGhlIGJpYXMtdmFyaWFuY2UgdHJhZGUgb2ZmCgpleHBlY3RlZCB0ZXN0IE1TRSBzZSBkw6ljb21wb3NlIGVuIDMgcGFydGllczoKICAgIC0gdmFyaWFuY2UKICAgIC0gc3F1YXJlZCBiaWFpcwogICAgLSB2YXJpYW5jZSBkZSBsJ2VycmV1cgogICAgCmxhIHZhcmlhbmNlIDogdmFyaWF0aW9uIGR1IMOgIGwnw6ljaGFudGlsbG9uIChvbiBjaGFuZ2UgZCfDqWNoYW50aWxsb24sIG9uIGEgZGVzIGNvZWYgdW4gcGV1IGRpZmbDqXJlbnRzKS4gcGx1cyBsYSBtZXRob2RlIHN0YXQgZXN0IGZsZXhpYmxlLCBwbHVzIGxhIHZhcmlhbmNlIGVzdCBmb3J0ZSBlbiBnw6luw6lyYWwuCmJpYWlzIDogcHJvdmllbnQgZGVzIHNpbXBsaWZpY2F0aW9ucyBmYWl0ZXMgc3VyIGxhIGZvcm1lIGZvbmN0aW9ubmVsbGUgKHVuIG1vZCBsaW4gcGV1dCBhdm9pciB1biB0csOocyBmb3J0IGJpYWlzIHNpIGxhIHJlbGF0aW9uIG4nZXN0IHBhcyBsaW7DqWFpcmUpLiBwbHVzIHVuIG1vdGhvZGUgZXN0IGZsZXhpYmxlLCBtb2lucyBsZSBiaWFpcyBlc3QgZm9ydCAoZW4gZ8OpbsOpcmFsKS4KZG9uYyBwbHVzIGxhIG1ldGhvZGUgZXN0IGZsZXhpYmxlLCBwbHVzIGxhIHZhcmlhbmNlIGF1Z21lbnRlIGV0IHBsdXMgbGUgYmlhaXMgYmFpc3NlLiBsYSBwb2ludCBjcml0aXF1ZSBlc3QgbGEgZHluYW1pcXVlIGRlcyAyLgoKY2UgdHJhZGUtb2ZmIGVzdCBsYSBwcmluY2lwYWxlIGRpZmZpY3VsdMOpLiBpbCBuZSBmYXV0IGphbWFpcyBsZSBwZXJkcmUgZGUgdnVlLgoKCiMjIyBjbGFzc2lmaWNhdGlvbiBzZXR0aW5ncwoKCgoKCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIklTTFIgTm90ZWJvb2siDQpvdXRwdXQ6DQogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQNCiAgcGRmX2RvY3VtZW50OiBkZWZhdWx0DQotLS0NCg0KTm90ZWJvb2sgcG91ciBsZSBsaXZyZSAiSW50cm9kdWN0aW9uIHRvIFN0YXRpc3RpY2FsIExlYXJuaW5nIHdpdGggQXBwbGljYXRpb25zIGluIFIiIA0KKHVybClbaHR0cDovL3d3dy1iY2YudXNjLmVkdS9+Z2FyZXRoL0lTTC9dDQoNCk1PT0MgOiBodHRwczovL2xhZ3VuaXRhLnN0YW5mb3JkLmVkdS9kYXNoYm9hcmQNCg0KaWQgOiBqbWZhdmFyb0B5YWhvby5mciAgDQpwd2QgOiBKTTcwdmlubg0KDQoNCg0KDQpgYGB7cn0NCmxpYnJhcnkoSVNMUikNCmBgYA0KYGBge3B5dGhvbn0NCm5wID0gWzEsMiwzXQ0KcHJpbnQobnApDQpwcmludCh0eXBlKG5wKSkNCmBgYA0KDQojIENoYXBpdHJlIDIgOiBTdGF0aXN0aWNhbCBMZWFybmluZw0KDQotIHByw6lkaWN0aW9uICoqdnMqKiBsJ2luZsOpcmVuY2UNCg0KLSBtZXRob2RlIHBhcmFtw6l0cmlxdWUgKip2cyoqIG5vbi1wYXJhbcOpdHJpcXVlIDogbGEgZm9ybWUgZGUgKipmKiogZXN0IGTDqWZpbmkgdnMgbGEgZm9ybWUgbmUgbCdlc3QgcGFzLg0KbGVzIG3DqXRob2RlcyBub24gcGFyYW3DqXRyaXF1ZXMgc29udCBnw6luw6lyYWxlbWVudCB1dGlsaXPDqXMgcG91ciBsYSBwcsOpZGljdGlvbiBjYXIgbWVpbGxldXJlIHBvdXIgw6dhLiBjZWxhIGRpdCwgcGFzIHRvdWpvdXJzIGNhciBjZXMgbcOpdGhvZGVzIHNvbnQgc2Vuc2libGVzIMOgIGwnKm92ZXJmaXR0aW5nKi4NCg0KLSBzdXBlcnZpc2VkICoqdnMqKiB1bnN1cGVydmlzZWQgDQoNCi0gcmVncmVzc2lvbiAqKnZzKiogY2xhc3NpZmljYXRpb24gcGIgOiBzZWxvbiBsZSB0eXBlIGRlIHZhcmlhYmxlIMOgIG1vZMOpbGlzZXIgKHF1YW50IG91IHF1YWxpKS4gDQoNCiMjIEFzc2Vzc2luZyBtb2RlbCBhY2N1cmFjeQ0KDQojIyMgcmVncmVzc2lvbiBzZXR0aW5ncw0KDQpwb3VyIGxhIHJlZ3Jlc3Npb24gOiBNU0UuIGNhbGN1bCBwb3VyIGxlIHRyYWluaW5nIGRhdGFzZXQgZXQgbGUgdGVzdCBkYXRhc2V0Lg0Kb3ZlcmZpdHRpbmcgOiBsZSB0cmFpbmluZyBlc3QgdHLDqHMgZmFpYmxlIG1haXMgbGUgdGVzdCBlc3QgZm9ydA0KPT4gY3Jvc3MgdmFsaWRhdGlvbg0KDQotIHRoZSBiaWFzLXZhcmlhbmNlIHRyYWRlIG9mZg0KDQpleHBlY3RlZCB0ZXN0IE1TRSBzZSBkw6ljb21wb3NlIGVuIDMgcGFydGllczoNCiAgICAtIHZhcmlhbmNlDQogICAgLSBzcXVhcmVkIGJpYWlzDQogICAgLSB2YXJpYW5jZSBkZSBsJ2VycmV1cg0KICAgIA0KbGEgdmFyaWFuY2UgOiB2YXJpYXRpb24gZHUgw6AgbCfDqWNoYW50aWxsb24gKG9uIGNoYW5nZSBkJ8OpY2hhbnRpbGxvbiwgb24gYSBkZXMgY29lZiB1biBwZXUgZGlmZsOpcmVudHMpLiBwbHVzIGxhIG1ldGhvZGUgc3RhdCBlc3QgZmxleGlibGUsIHBsdXMgbGEgdmFyaWFuY2UgZXN0IGZvcnRlIGVuIGfDqW7DqXJhbC4NCmJpYWlzIDogcHJvdmllbnQgZGVzIHNpbXBsaWZpY2F0aW9ucyBmYWl0ZXMgc3VyIGxhIGZvcm1lIGZvbmN0aW9ubmVsbGUgKHVuIG1vZCBsaW4gcGV1dCBhdm9pciB1biB0csOocyBmb3J0IGJpYWlzIHNpIGxhIHJlbGF0aW9uIG4nZXN0IHBhcyBsaW7DqWFpcmUpLiBwbHVzIHVuIG1vdGhvZGUgZXN0IGZsZXhpYmxlLCBtb2lucyBsZSBiaWFpcyBlc3QgZm9ydCAoZW4gZ8OpbsOpcmFsKS4NCmRvbmMgcGx1cyBsYSBtZXRob2RlIGVzdCBmbGV4aWJsZSwgcGx1cyBsYSB2YXJpYW5jZSBhdWdtZW50ZSBldCBwbHVzIGxlIGJpYWlzIGJhaXNzZS4gbGEgcG9pbnQgY3JpdGlxdWUgZXN0IGxhIGR5bmFtaXF1ZSBkZXMgMi4NCg0KY2UgdHJhZGUtb2ZmIGVzdCBsYSBwcmluY2lwYWxlIGRpZmZpY3VsdMOpLiBpbCBuZSBmYXV0IGphbWFpcyBsZSBwZXJkcmUgZGUgdnVlLiBJbCBzZSBtYW5pZmVzdGUgcGFyIGxhIGNvdXJiZSBlbiBVIGR1IHRhdXggZCdlcnJldXIgc3VyIGxlIHRlc3QgZGF0YXNldC4NCg0KDQoNCg0KIyMjIGNsYXNzaWZpY2F0aW9uIHNldHRpbmdzDQoNCi0gZXJyb3IgcmF0ZQ0KDQojIyMjIHRoZSBiYXllcyBjbGFzc2lmaWVyOiAgYWZmZWN0ZXIgw6AgbGEgY2xhc3NlIHF1aSBhIGxhIHBsdXMgZm9ydGUgcHJvYmFiaWxpdMOpDQoNCi0gQmF5ZXMgZGVjaXNpb24gYm91bmRhcnkgOiBsaW1pdGUgKGZyb250aWVyZSkgc8OpcGFyYW50IGxlcyBjbGFzc2VzIHZpYSBsZSBiYXllcyBjbGFzc2lmaWVyDQoNCi0gbGUgYmF5ZXMgY2xhc3NpZmllciBwcm9kdWl0IGxlIHBsdXMgcGV0aXQgdGF1eCBkJ2VycmV1ciAoZXJyb3IgcmF0ZSksIGFwcGVsw6kgbGUgKipiYXllcyBlcnJvciByYXRlKioNCg0KIyMjIyBLLU5lYXJlc3QgTmVpZ2hib3JzIChLTk4pDQoNCkVuIHRoZW9yaWUsIG9uIHZvdWRyYWl0IHRvdWpvdXJzIHV0aWxpc2VyIGxlIGJheWVzIGNsYXNzaWZpZXIsIG1haXMgZW4gcHJhdGlxdWUsIG9uIG9uIG5lIGNvbm5haXQgcGFzIGxhIGRpc3RyaWJ1dGlvbiBjb25kaXRpb25uZWxsZSBkZSBZIHNhY2hhbnQgWC4gZG9uYyBvbiBwZXV0IHBhcyBsZSBjYWxjdWxlciAoKj8/IHBvdXJxdW9pKikNCg0KU291dmVudCB0csOocyBwcm9jaGUgZHUgYmF5ZXMgY2xhc3NpZmllci4gbGUgY2hvaXggZGUgSyBqb3VlIMOpbm9ybcOpbWVudC4gU2kgSz0xLCBtb2TDqGxlIHRyw6hzIGZsZXhpYmxlIChvdmVyZml0dGluZyksIHBsdXMgSyBncmFuZGl0LCBtb2lucyBsZSBtb2TDqGxlIGVzdCBmbGV4aWJsZSBldCBsYSBmcm9udGnDqHJlIGRldmllbnQgbGluw6lhaXJlLiBJbCBuJ3kgYSBwYXMgZGUgcmVsYXRpb24gZm9ydGUgZW50cmUgbGUgdGF1eCBkJ2VycmV1ciBzdXIgbGUgdHJhaW5pbmcgZXQgbGUgdGVzdCBkYXRhc2V0Lg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo=</div>
 
 
 

@@ -5,7 +5,15 @@ output:
   pdf_document: default
 ---
 
-Notebook pour le livre "Introduction to Statistical Learning with Applications in R"
+Notebook pour le livre "Introduction to Statistical Learning with Applications in R" 
+(url)[http://www-bcf.usc.edu/~gareth/ISL/]
+
+MOOC : https://lagunita.stanford.edu/dashboard
+
+id : jmfavaro@yahoo.fr  
+pwd : JM70vinn
+
+
 
 
 ```{r}
@@ -47,10 +55,37 @@ la variance : variation du à l'échantillon (on change d'échantillon, on a des
 biais : provient des simplifications faites sur la forme fonctionnelle (un mod lin peut avoir un très fort biais si la relation n'est pas linéaire). plus un mothode est flexible, moins le biais est fort (en général).
 donc plus la methode est flexible, plus la variance augmente et plus le biais baisse. la point critique est la dynamique des 2.
 
-ce trade-off est la principale difficulté. il ne faut jamais le perdre de vue.
+ce trade-off est la principale difficulté. il ne faut jamais le perdre de vue. Il se manifeste par la courbe en U du taux d'erreur sur le test dataset.
+
+
 
 
 ### classification settings
+
+- error rate
+
+#### the bayes classifier:  affecter à la classe qui a la plus forte probabilité
+
+- Bayes decision boundary : limite (frontiere) séparant les classes via le bayes classifier
+
+- le bayes classifier produit le plus petit taux d'erreur (error rate), appelé le **bayes error rate**
+
+#### K-Nearest Neighbors (KNN)
+
+En theorie, on voudrait toujours utiliser le bayes classifier, mais en pratique, on on ne connait pas la distribution conditionnelle de Y sachant X. donc on peut pas le calculer (*?? pourquoi*)
+
+Souvent très proche du bayes classifier. le choix de K joue énormément. Si K=1, modèle très flexible (overfitting), plus K grandit, moins le modèle est flexible et la frontière devient linéaire. Il n'y a pas de relation forte entre le taux d'erreur sur le training et le test dataset.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
