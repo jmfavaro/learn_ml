@@ -19,3 +19,8 @@ videos : [https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-i
 pages 127
 
 # Logistic Regression
+
+p(X) / (1-p(x)) : odds. entre 0 et l'infini
+log(odds) => appelé logit
+pas de lien direct entre le parametre et la proba, mais entre le paramètre et le log-odds
+
