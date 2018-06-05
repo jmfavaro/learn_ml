@@ -116,14 +116,18 @@ names(Boston)
 
 lm.fit <- lm(medv∼lstat ,data=Boston )
 
-lm.fit
+summary(lm.fit)
+
+names(lm.fit)
+
+confint(lm.fit)
 
 ```
 
 
 
 
-
+page 112
 
 
 
