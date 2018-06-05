@@ -1,0 +1,21 @@
+---
+title: "ISLR Notebook Chapitre 4 : Classification"
+output:
+  html_notebook: 
+    toc: yes
+---
+
+Notebook pour le livre "Introduction to Statistical Learning with Applications in R" 
+(url)[http://www-bcf.usc.edu/~gareth/ISL/]
+
+MOOC : https://lagunita.stanford.edu/dashboard
+
+id : jmfavaro@yahoo.fr  
+pwd : JM70vinn
+
+videos : [https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-in-15-hours-of-expert-videos/]
+
+
+pages 127
+
+# Logistic Regression

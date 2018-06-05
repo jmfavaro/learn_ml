@@ -1,8 +1,8 @@
 ---
 title: "ISLR Notebook"
 output:
-  html_notebook: default
-  pdf_document: default
+  html_notebook: 
+    toc: yes
 ---
 
 Notebook pour le livre "Introduction to Statistical Learning with Applications in R" 
@@ -17,7 +17,7 @@ videos : [https://www.r-bloggers.com/in-depth-introduction-to-machine-learning-i
 
 
 
-```{r}
+```{r message=FALSE}
 library(ISLR)
 ```
 ```{python}
@@ -109,7 +109,9 @@ Que faire dans ce cas là : supprimer la variable. ou faire une combinaison des 
 
 ## LAB
 
-```{r echo=TRUE}
+### regression simple
+
+```{r echo=TRUE, message=FALSE}
 library(MASS)
 library(ISLR)
 names(Boston)
@@ -124,12 +126,67 @@ confint(lm.fit)
 
 ```
 
+### regression multiple
+
+```{r echo=TRUE}
+lm.fit =lm(medv∼lstat+age ,data=Boston )
+summary (lm.fit)
+```
+
+#### calcul du VIF (avec la librairie CAR)
+
+```{r echo=TRUE, message=FALSE}
+library(car)
+
+vif(lm.fit)
+
+```
+
+le VIF est inférieur à 5. c'est ok.
+
+#### interaction entre variable:  var1:vaz2  mais ne prend que l'interactions
+
+```{r echo=TRUE, message=FALSE}
+
+lm.fit <- lm(medv∼lstat *age ,data=Boston )
+
+summary(lm.fit)
 
 
+```
 
-page 112
+
+##### transformations non linéaires
+
+il faut utilise la fonction I() dans la lm. ci dessous au carré
+
+```{r echo=TRUE, message=FALSE}
+
+lm.fit2=lm(medv~lstat +I(lstat ^2), data = Boston)
+summary (lm.fit2)
+
+```
+
+la fonction **anova()** permet de tester l'amélioration du modèle. on rentre les 2 modèles(par emboitement). bien sur il faut que les toues les variables du premier modèle soint dans le second. hypothese null : les 2 modèles ont le meme fit, hypotheses alternative le 2nd modèle est meilleur.
+
+```{r echo=TRUE}
+lm.fit =lm(medv∼lstat, data = Boston)
+anova(lm.fit,lm.fit2)
+
+```
 
 
+si on beut plus de polynomes, on peut utiliser la fonction **poly(var, N)**
+
+```{r echo = TRUE}
+
+lm.fit5=lm(medv~poly(lstat ,5), data = Boston)
+summary(lm.fit5)
+```
+
+#### les variables qualitatives
+
+la fonction **contrast()** permet de connaitre (et modifier) le codage
 
 
 
