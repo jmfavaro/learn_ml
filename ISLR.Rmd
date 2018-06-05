@@ -78,6 +78,53 @@ En theorie, on voudrait toujours utiliser le bayes classifier, mais en pratique,
 Souvent très proche du bayes classifier. le choix de K joue énormément. Si K=1, modèle très flexible (overfitting), plus K grandit, moins le modèle est flexible et la frontière devient linéaire. Il n'y a pas de relation forte entre le taux d'erreur sur le training et le test dataset.
 
 
+# Chapitre 3 : Linear Regression
+
+## Some importants questions
+
+### 1: relation entre la reponse et les predicteurs?
+
+methode : 
+
+- F-statistic teste b1=b2=...=bn=0 vs au moins un b est <> 0. ce critère est important car la p-value de chaque coefficient ne suffit pas. il y a de forte chance qu'il y est au moins un de ces coeffcicient qui ait par chance au moins un p-value < 0.005, c'est notamment le cas lorsqu'il y a bcp de prédicteurs.
+
+- plusieurs methodes (indcicateurs) pour faire la selection de variable : Mallow's CP, AIC, BIC, adj-R² (voir chap 6)    
+
+### 2: les methodes de selection (basé sur la p-value): 
+
+    - **forward selection**
+    - **backward selection**
+    - **mixed selection** (stepwise?)
+    
+
+### 3: Model Fit
+
+### 4: Predictions
+
+### 5 : les problèmes
+
+la colinéarité augmente la standard error des coefficients. donc fait baisser la la t-stat et donc on augmente la chance de rejecter H0 : b~j~ = 0. baisse de la **puissance** du test. la matrice de correlation ne permet que de voir les corrélation 2 à 2. En cas de multicolinéarité, on voit rien. Il faut utiliser le **VIF**. la valuer la plus faible est 1. Typiquement, une valeur qui dépasse 5 ou 10. Le VIF peut se calculer pour chaque vairable. Si la corrélation de X~i~  regressé sur toutes les autres est proche de 1 ,aalors il y a probabelement corrélation.
+
+Que faire dans ce cas là : supprimer la variable. ou faire une combinaison des variables incriminées.
+
+## LAB
+
+```{r echo=TRUE}
+library(MASS)
+library(ISLR)
+names(Boston)
+
+lm.fit <- lm(medv∼lstat ,data=Boston )
+
+lm.fit
+
+```
+
+
+
+
+
+
 
 
 
