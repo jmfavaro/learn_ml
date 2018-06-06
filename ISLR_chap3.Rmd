@@ -24,3 +24,15 @@ p(X) / (1-p(x)) : odds. entre 0 et l'infini
 log(odds) => appelé logit
 pas de lien direct entre le parametre et la proba, mais entre le paramètre et le log-odds
 
+# analyse discriminante linéaire
+
+s'appuie sur le th. de Bayes
+
+- efficace quand les classes sont bien séparé (là ou la RL est instable)
+
+- efficace vs RL quand n petit et X normal
+
+- populaire quand il y a plus de 2 réponses
+
+
+il faut calculer la proba à p

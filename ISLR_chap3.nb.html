@@ -174,6 +174,7 @@ $(document).ready(function () {
 <div id="TOC">
 <ul>
 <li><a href="#logistic-regression">Logistic Regression</a></li>
+<li><a href="#analyse-discriminante-lineaire">analyse discriminante linéaire</a></li>
 </ul>
 </div>
 
@@ -187,10 +188,20 @@ pwd : JM70vinn</p>
 <div id="logistic-regression" class="section level1">
 <h1>Logistic Regression</h1>
 <p>p(X) / (1-p(x)) : odds. entre 0 et l’infini log(odds) =&gt; appelé logit pas de lien direct entre le parametre et la proba, mais entre le paramètre et le log-odds</p>
+</div>
+<div id="analyse-discriminante-lineaire" class="section level1">
+<h1>analyse discriminante linéaire</h1>
+<p>s’appuie sur le th. de Bayes</p>
+<ul>
+<li><p>efficace quand les classes sont bien séparé (là ou la RL est instable)</p></li>
+<li><p>efficace vs RL quand n petit et X normal</p></li>
+<li><p>populaire quand il y a plus de 2 réponses</p></li>
+</ul>
+<p>il faut calculer la proba à p</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIklTTFIgTm90ZWJvb2sgQ2hhcGl0cmUgNCA6IENsYXNzaWZpY2F0aW9uIg0Kb3V0cHV0Og0KICBodG1sX25vdGVib29rOiANCiAgICB0b2M6IHllcw0KLS0tDQoNCk5vdGVib29rIHBvdXIgbGUgbGl2cmUgIkludHJvZHVjdGlvbiB0byBTdGF0aXN0aWNhbCBMZWFybmluZyB3aXRoIEFwcGxpY2F0aW9ucyBpbiBSIiANCih1cmwpW2h0dHA6Ly93d3ctYmNmLnVzYy5lZHUvfmdhcmV0aC9JU0wvXQ0KDQpNT09DIDogaHR0cHM6Ly9sYWd1bml0YS5zdGFuZm9yZC5lZHUvZGFzaGJvYXJkDQoNCmlkIDogam1mYXZhcm9AeWFob28uZnIgIA0KcHdkIDogSk03MHZpbm4NCg0KdmlkZW9zIDogW2h0dHBzOi8vd3d3LnItYmxvZ2dlcnMuY29tL2luLWRlcHRoLWludHJvZHVjdGlvbi10by1tYWNoaW5lLWxlYXJuaW5nLWluLTE1LWhvdXJzLW9mLWV4cGVydC12aWRlb3MvXQ0KDQoNCnBhZ2VzIDEyNw0KDQojIExvZ2lzdGljIFJlZ3Jlc3Npb24NCg0KcChYKSAvICgxLXAoeCkpIDogb2Rkcy4gZW50cmUgMCBldCBsJ2luZmluaQ0KbG9nKG9kZHMpID0+IGFwcGVsw6kgbG9naXQNCnBhcyBkZSBsaWVuIGRpcmVjdCBlbnRyZSBsZSBwYXJhbWV0cmUgZXQgbGEgcHJvYmEsIG1haXMgZW50cmUgbGUgcGFyYW3DqHRyZSBldCBsZSBsb2ctb2Rkcw0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIklTTFIgTm90ZWJvb2sgQ2hhcGl0cmUgNCA6IENsYXNzaWZpY2F0aW9uIg0Kb3V0cHV0Og0KICBodG1sX25vdGVib29rOiANCiAgICB0b2M6IHllcw0KLS0tDQoNCk5vdGVib29rIHBvdXIgbGUgbGl2cmUgIkludHJvZHVjdGlvbiB0byBTdGF0aXN0aWNhbCBMZWFybmluZyB3aXRoIEFwcGxpY2F0aW9ucyBpbiBSIiANCih1cmwpW2h0dHA6Ly93d3ctYmNmLnVzYy5lZHUvfmdhcmV0aC9JU0wvXQ0KDQpNT09DIDogaHR0cHM6Ly9sYWd1bml0YS5zdGFuZm9yZC5lZHUvZGFzaGJvYXJkDQoNCmlkIDogam1mYXZhcm9AeWFob28uZnIgIA0KcHdkIDogSk03MHZpbm4NCg0KdmlkZW9zIDogW2h0dHBzOi8vd3d3LnItYmxvZ2dlcnMuY29tL2luLWRlcHRoLWludHJvZHVjdGlvbi10by1tYWNoaW5lLWxlYXJuaW5nLWluLTE1LWhvdXJzLW9mLWV4cGVydC12aWRlb3MvXQ0KDQoNCnBhZ2VzIDEyNw0KDQojIExvZ2lzdGljIFJlZ3Jlc3Npb24NCg0KcChYKSAvICgxLXAoeCkpIDogb2Rkcy4gZW50cmUgMCBldCBsJ2luZmluaQ0KbG9nKG9kZHMpID0+IGFwcGVsw6kgbG9naXQNCnBhcyBkZSBsaWVuIGRpcmVjdCBlbnRyZSBsZSBwYXJhbWV0cmUgZXQgbGEgcHJvYmEsIG1haXMgZW50cmUgbGUgcGFyYW3DqHRyZSBldCBsZSBsb2ctb2Rkcw0KDQojIGFuYWx5c2UgZGlzY3JpbWluYW50ZSBsaW7DqWFpcmUNCg0KcydhcHB1aWUgc3VyIGxlIHRoLiBkZSBCYXllcw0KDQotIGVmZmljYWNlIHF1YW5kIGxlcyBjbGFzc2VzIHNvbnQgYmllbiBzw6lwYXLDqSAobMOgIG91IGxhIFJMIGVzdCBpbnN0YWJsZSkNCg0KLSBlZmZpY2FjZSB2cyBSTCBxdWFuZCBuIHBldGl0IGV0IFggbm9ybWFsDQoNCi0gcG9wdWxhaXJlIHF1YW5kIGlsIHkgYSBwbHVzIGRlIDIgcsOpcG9uc2VzDQoNCg0KaWwgZmF1dCBjYWxjdWxlciBsYSBwcm9iYSDDoCBwDQo=</div>
 
 
 
